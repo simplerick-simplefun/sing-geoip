@@ -35,7 +35,7 @@ jobs:
       - name: Push artifacts to release branch
         if: steps.build.outputs.skip != 'true'
         run: |
-          git config --local user.email "891708+soffchen@users.noreply.github.com"
+          git config --local user.email "13503950+simplerick-simplefun@users.noreply.github.com"
           git config --local user.name "github-action[bot]"
           git fetch
           git checkout release
@@ -61,10 +61,10 @@ jobs:
 
       - name: Purge CDN Cache
         run: |
-          curl -L https://purge.jsdelivr.net/gh/soffchen/sing-geoip@release/geoip.db > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/soffchen/sing-geoip@release/geoip-cn.db > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/soffchen/sing-geoip@release/geoip.db.sha256sum > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/soffchen/sing-geoip@release/geoip-cn.db.sha256sum > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip.db > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip-cn.db > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip.db.sha256sum > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip-cn.db.sha256sum > /dev/null 2>&1
         
       - name: Create a release
         if: steps.build.outputs.skip != 'true'
