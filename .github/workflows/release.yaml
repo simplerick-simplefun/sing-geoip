@@ -53,6 +53,7 @@ jobs:
           git branch -m release
 
       - name: GitHub Push
+        if: steps.build.outputs.skip != 'true'
         uses: ad-m/github-push-action@v0.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,6 +61,7 @@ jobs:
           force: true
 
       - name: Purge CDN Cache
+        if: steps.build.outputs.skip != 'true'
         run: |
           curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip.db > /dev/null 2>&1
           curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip-cn.db > /dev/null 2>&1
