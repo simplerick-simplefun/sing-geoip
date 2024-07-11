@@ -63,10 +63,7 @@ jobs:
       - name: Purge CDN Cache
         if: steps.build.outputs.skip != 'true'
         run: |
-          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip.db > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip-cn.db > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip.db.sha256sum > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/geoip-cn.db.sha256sum > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/simplerick-simplefun/sing-geoip@release/ > /dev/null 2>&1
 
       - name: Release
         if: steps.build.outputs.skip != 'true'
