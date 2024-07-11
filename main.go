@@ -238,18 +238,18 @@ func setActionOutput(name string, content string) {
 }
 
 func appendToFile(filename string, content string) error {
-    file, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-    if err != nil {
-        return err
-    }
-    defer file.Close()
+  file, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+  if err != nil {
+    return err
+  }
+  defer file.Close()
 
-    _, err = file.WriteString(content + "\n") // Append content and newline
-    if err != nil {
-        return err
-    }
+  _, err = file.WriteString(content + "\n") // Append content and newline
+  if err != nil {
+    return err
+  }
 
-    return nil
+  return nil
 }
 
 func main() {
