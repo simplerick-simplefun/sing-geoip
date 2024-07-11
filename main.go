@@ -234,7 +234,22 @@ func release(source string, destination string) error {
 }
 
 func setActionOutput(name string, content string) {
-	os.Stdout.WriteString("::set-output name=" + name + "::" + content + "\n")
+	appendToFile(os.Getenv("GITHUB_OUTPUT"), name + "=" + content)
+}
+
+func appendToFile(filename string, content string) error {
+    file, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+    if err != nil {
+        return err
+    }
+    defer file.Close()
+
+    _, err = file.WriteString(content + "\n") // Append content and newline
+    if err != nil {
+        return err
+    }
+
+    return nil
 }
 
 func main() {
