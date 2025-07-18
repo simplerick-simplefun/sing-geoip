@@ -24,6 +24,7 @@ jobs:
         id: build
         env:
           NO_SKIP: true
+          GEOIP_TOKEN: ${{ secrets.GEOIP_REPO_TOKEN }}
         run: go run -v .
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

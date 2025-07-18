@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/google/go-github/v45/github"
+	"github.com/google/go-github/v55/github"
 	"github.com/maxmind/mmdbwriter"
 	"github.com/maxmind/mmdbwriter/inserter"
 	"github.com/maxmind/mmdbwriter/mmdbtype"
@@ -24,6 +24,8 @@ import (
 var githubClient *github.Client
 
 func init() {
+  githubClient = github.NewClient(nil).WithAuthToken(os.Getenv("GEOIP_TOKEN"))
+  /*
 	accessToken, loaded := os.LookupEnv("ACCESS_TOKEN")
 	if !loaded {
 		githubClient = github.NewClient(nil)
@@ -33,6 +35,7 @@ func init() {
 		Username: accessToken,
 	}
 	githubClient = github.NewClient(transport.Client())
+  */
 }
 
 func fetch(from string) (*github.RepositoryRelease, error) {
