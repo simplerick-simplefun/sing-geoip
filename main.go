@@ -24,18 +24,7 @@ import (
 var githubClient *github.Client
 
 func init() {
-  githubClient = github.NewClient(nil).WithAuthToken(os.Getenv("GEOIP_TOKEN"))
-  /*
-	accessToken, loaded := os.LookupEnv("ACCESS_TOKEN")
-	if !loaded {
-		githubClient = github.NewClient(nil)
-		return
-	}
-	transport := &github.BasicAuthTransport{
-		Username: accessToken,
-	}
-	githubClient = github.NewClient(transport.Client())
-  */
+	githubClient = github.NewClient(nil).WithAuthToken(os.Getenv("GEOIP_TOKEN"))
 }
 
 func fetch(from string) (*github.RepositoryRelease, error) {
