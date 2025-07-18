@@ -3,7 +3,7 @@ module sing-geoip
 go 1.20
 
 require (
-	github.com/google/go-github/v45 v45.2.0
+	github.com/google/go-github/v55 v55.0.0
 	github.com/maxmind/mmdbwriter v0.0.0-20221024142553-ff6538147996
 	github.com/oschwald/geoip2-golang v1.8.0
 	github.com/oschwald/maxminddb-golang v1.10.0
