@@ -249,7 +249,7 @@ func main() {
 	if len(os.Args) >= 3 {
 		err = local(os.Args[1], os.Args[2], os.Args[2:])
 	} else {
-		err = release("simplerick-simplefun/geoip", "simplerick-simplefun/sing-geoip")
+		err = release("Loyalsoldier/geoip", "simplerick-simplefun/sing-geoip")
 	}
 	if err != nil {
 		logrus.Fatal(err)
